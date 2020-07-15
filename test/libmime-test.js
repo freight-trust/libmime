@@ -628,6 +628,23 @@ describe('libmime', () => {
         });
     });
 
+    describe('#detectMimeType', () => {
+        it('should find exact match', () => {
+            let extension = 'edi',
+                contentType = 'application/edi-x12';
+
+            expect(libmime.detectMimeType(extension)).to.equal(contentType);
+        });
+
+        it('should find best match', () => {
+            let extension = '856-4010.edi',
+                contentType = 'application/edi-x12';
+
+            expect(libmime.detectMimeType(extension)).to.equal(contentType);
+        });
+    });
+});
+
     describe('#foldLines', () => {
         it('should Fold long header line', () => {
             let inputStr = 'Subject: Testin command line kirja õkva kakva mõni tõnis kõllas põllas tõllas rõllas jušla kušla tušla musla',
