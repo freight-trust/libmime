@@ -643,7 +643,7 @@ describe('libmime', () => {
             expect(libmime.detectMimeType(extension)).to.equal(contentType);
         });
     });
-});
+
 
     describe('#foldLines', () => {
         it('should Fold long header line', () => {
@@ -678,4 +678,5 @@ describe('libmime', () => {
             expect(outputStr).to.equal(libmime.foldLines(inputStr, 76));
         });
     });
+
 });
